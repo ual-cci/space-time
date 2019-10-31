@@ -70,7 +70,6 @@ app.get('/single/:slug', (req, res) => {
 				}
 			}
 		}
-		console.log(events);
 		events.sort((a, b) => {
 			a = moment(a.start)
 			b = moment(b.start)
