@@ -1,0 +1,124 @@
+html {
+  font-family: "Helvetica Neue";
+  font-size: 10pt;
+  background: white;
+  letter-spacing: -0.2pt;
+  line-height: 1;
+  overflow: hidden;
+}
+body {
+  width: 800px;
+  height: 444px;
+  background: black;
+  color: white;
+  cursor: none;
+  margin: 0;
+  padding: 1.75em;
+  user-select: none;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+#container #display header {
+  width: 100%;
+  height: 3em;
+  display: inline-block;
+  margin-bottom: 1.5em;
+}
+#container #display header .brand,
+#container #display header .datetime {
+  width: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+#container #display header .datetime {
+  text-align: right;
+}
+#container #display header p {
+  font-size: 1.25em;
+  margin: 0;
+}
+#container #display header .brand img {
+  height: 3em;
+}
+#container #display #title {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 1.5em;
+}
+#container #display #title h1 {
+  font-size: 3em;
+}
+#container #display #title h2 {
+  font-size: 2em;
+  font-weight: normal;
+  opacity: 0.5;
+}
+#container #display h3 {
+  font-weight: normal;
+}
+#container #display .event {
+  vertical-align: top;
+  display: inline-block;
+  margin-bottom: 1.5em;
+  box-sizing: border-box;
+}
+#container #display .event span {
+  font-weight: 400;
+  font-size: 1.5em;
+  opacity: 0.5;
+  line-height: 1.5;
+}
+#container #display .event h2 {
+  font-weight: 500;
+  font-size: 2em;
+  margin-bottom: 0.25em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
+}
+#container #display .event h3,
+#container #display .event h4 {
+  font-weight: 400;
+  font-size: 1.5em;
+  margin-bottom: 0.25em;
+}
+#container #display .event h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
+}
+#container #display .event:nth-child(1) {
+  width: 100%;
+}
+#container #display .event:nth-child(2) {
+  font-size: 9pt;
+  width: 50%;
+  padding-right: 1em;
+}
+#container #display .event:nth-child(3) {
+  font-size: 9pt;
+  width: 50%;
+  padding-left: 1em;
+}
+#container #display .progress {
+  border-radius: 5px;
+  width: 100%;
+  height: 0.5em;
+  background: rgba(255, 255, 255, 0.25);
+  margin: 1em 0 0 0;
+  overflow: hidden;
+}
+#container #display .progress .bar {
+  transition: width 1s ease-in-out;
+  border-radius: inherit;
+  height: 100%;
+  background: #ffffff;
+}

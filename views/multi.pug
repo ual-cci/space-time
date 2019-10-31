@@ -1,0 +1,19 @@
+extends base.pug
+
+block head
+	link(rel='stylesheet' href='/css/multi.css')
+	script(src="/jquery/jquery.min.js")
+	script(src="/moment/min/moment.min.js")
+	script(src="/js/multi.js")
+
+block prepend title
+	- title = `Display: ${display.name}`
+
+block contents
+	for room in rooms
+		h1=room.name
+		ul
+			for event, i in room.events
+				li=event.title
+					br
+					| #{moment(event.start).format('HH:mm')} - #{moment(event.end).format('HH:mm')}

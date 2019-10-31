@@ -1,0 +1,10 @@
+extends base.pug
+
+block prepend title
+	- title = 'Rooms'
+
+block contents
+	h1 List
+	ul
+		for display in displays
+			li: a(href=`/${path}/${display.slug}`)=(display.number ? display.number : display.name) 

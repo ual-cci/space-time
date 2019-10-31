@@ -1,0 +1,52 @@
+{
+	"multi": [
+		{
+			"brand": "cci",
+			"slug": "cci",
+			"name": "UAL Creative Computing Institute",
+			"rooms": ["prb50101", "prb50102", "prb50103", "prb50104", "prb401b"]
+		}
+	],
+	"single": [
+		{
+			"brand": "cci",
+			"slug": "prb50101",
+			"number": "B501-01",
+			"name": "Classroom",
+			"url": "http://mytimetable.arts.ac.uk/calendarfeed/ical/R1-HS10THQJ845432/schedule.ics",
+			"mode": "room7"
+		},
+		{
+			"brand": "cci",
+			"slug": "prb50102",
+			"number": "B501-02",
+			"name": "Computer Room",
+			"url": "http://mytimetable.arts.ac.uk/calendarfeed/ical/R1-QN10NQDS845435/schedule.ics",
+			"mode": "room7"
+		},
+		{
+			"brand": "cci",
+			"slug": "prb50103",
+			"number": "B501-03",
+			"name": "Classroom",
+			"url": "http://mytimetable.arts.ac.uk/calendarfeed/ical/R1-HA10WLMY845437/schedule.ics",
+			"mode": "room7"
+		},
+		{
+			"brand": "cci",
+			"slug": "prb50104",
+			"number": "B501-04",
+			"name": "Breakout Space",
+			"url": "http://mytimetable.arts.ac.uk/calendarfeed/ical/R1-EM10MMAQ845442/schedule.ics",
+			"mode": "room7"
+		},
+		{
+			"brand": "cci",
+			"slug": "prb401b",
+			"number": "B401B",
+			"name": "Classroom",
+			"url": "http://mytimetable.arts.ac.uk/calendarfeed/ical/R1-LE10YWXN855863/schedule.ics",
+			"mode": "room7"
+		}
+	]
+}

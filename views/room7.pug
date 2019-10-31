@@ -1,0 +1,97 @@
+extends base.pug
+
+mixin event(i, e, p)
+	.event
+		+tense(i, e)
+		+event_details(e, p)
+
+mixin tense(i, e)
+	if i == 0
+		span Now:
+	if i == 1 && e && moment(e.start).diff(moment(), 'minutes') < 15
+		span Soon:
+	else if i == 1
+		span Next:
+	if i == 2
+		span Later:
+
+mixin event_details(event, progressBar)
+	h2=event.title
+	if event.course && event.course.length < 3
+		h3=event.course.join(', ')
+	h4 #{moment(event.start).format('HH:mm')} – #{moment(event.end).format('HH:mm')}
+	if progressBar && moment(event.start).isBefore(moment())
+		+progress_bar(event)
+		
+mixin progress_bar(event)
+	.progress(data-start=(moment(event.start).format('YYYY-MM-DD HH:mm')) data-end=(moment(event.end).format('YYYY-MM-DD HH:mm')))
+		.bar
+
+mixin free(time)
+	if time
+		if time.from
+			h2 Vacant
+			h3 From #{moment(time.from).format('HH:mm')} for the rest of the day
+		if time.until
+			h2=(room.bookable?'Available':'Vacant')
+			h3 Until #{moment(time.until).format('HH:mm')}
+	else
+		h2=(room.bookable?'Available':'Vacant')
+		h3 For the rest of the day
+
+block head
+	link(rel='stylesheet' href='/css/style.css')
+	script(src="/jquery/jquery.min.js")
+	script(src="/moment/min/moment.min.js")
+	script(src="/js/script.js")
+
+block prepend title
+	- title = `Room: ${room.number}`
+
+block contents
+	input(type='hidden', value=display.ip).ip
+	input(type='hidden', value=display.slug).slug
+	#container(style='display:none;')
+		#display
+			header
+				.brand
+					img(src=`/imgs/${room.brand}.svg`)
+				.datetime
+					p.date
+					p.time
+			#title
+				h1=room.number
+				h2=room.name
+			
+			- i
+			.events
+				- i = 0;
+				if events[0]
+					if moment(events[0].start).isBefore(moment())
+						+event(i++, events[0], true)
+					else
+						.event
+							+tense(i++)
+							+free({until: events[0].start})
+							input(type='hidden' id='refresh' value=moment(events[0].start).toISOString())
+						.event
+							+event(i++, events[0], true)
+				else
+					.event
+						+tense(i++)
+						+free
+						
+				if events[1]
+					+event(i++, events[1])
+				else if events[0]
+					.event
+						+tense(i++)
+						+free({from: events[0].end})
+				
+				if i < 3
+					if events[2]
+						+event(i++, events[2])
+					else if events[1]
+						.event
+							+tense(i++)
+							+free({from: events[1].end})

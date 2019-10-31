@@ -1,0 +1,10 @@
+extends base.pug
+
+block prepend title
+	- title = 'Rooms'
+
+block contents
+	h1 Room Displays
+	ul
+		li: a(href="/single") Single
+		li: a(href="/multi") Multi

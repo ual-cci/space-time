@@ -1,0 +1,23 @@
+{
+  "name": "space-time",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch-css": "catw -c 'lessc -' 'static/less/*.less' -o static/css/style.css -v"
+  },
+  "author": "Tom Lynch",
+  "license": "GPLv2",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "ical": "^0.6.0",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "catw": "github:unknowndomain/catw",
+    "less": "^3.10.3"
+  }
+}
