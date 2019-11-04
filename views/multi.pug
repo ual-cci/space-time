@@ -1,5 +1,17 @@
 extends base.pug
 
+mixin progress_bar(event)
+	.progress(data-start=(moment(event.start).format('YYYY-MM-DD HH:mm')) data-end=(moment(event.end).format('YYYY-MM-DD HH:mm')))
+		.bar
+
+mixin event_details(event, progressBar)
+	h2=event.title
+	if event.course && event.course.length < 3
+	h3=event.course.join(', ')
+	h4 #{moment(event.start).format('HH:mm')} – #{moment(event.end).format('HH:mm')}
+	if progressBar && moment(event.start).isBefore(moment())
+	+progress_bar(event)
+
 block head
 	link(rel='stylesheet' href='/css/multi.css')
 	script(src="/jquery/jquery.min.js")
@@ -10,10 +22,10 @@ block prepend title
 	- title = `Display: ${display.name}`
 
 block contents
+	h1=display.name
 	for room in rooms
-		h1=room.name
-		ul
-			for event, i in room.events
-				li=event.title
-					br
-					| #{moment(event.start).format('HH:mm')} - #{moment(event.end).format('HH:mm')}
+		h2=room.number
+		h3=room.name
+		if room.events.length > 0
+			+event_details(room.events[0])
+					
