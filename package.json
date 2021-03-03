@@ -14,7 +14,7 @@
     "ical": "^0.6.0",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
-    "pug": "^2.0.4"
+    "pug": "^3.0.1"
   },
   "devDependencies": {
     "catw": "github:unknowndomain/catw",
